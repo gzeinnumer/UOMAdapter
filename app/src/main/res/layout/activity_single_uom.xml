@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.single.SingleUOMActivity">
+
+    <ProgressBar
+        android:id="@+id/progressCircular"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="@dimen/def_margin"
+        app:layout_constraintBottom_toTopOf="@id/rv"
+        app:layout_constraintLeft_toLeftOf="@id/rv"
+        app:layout_constraintRight_toRightOf="@id/rv" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/MyTextContent"
+        android:layout_marginStart="@dimen/def_margin"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="@dimen/space"
+        android:text="Product Name"
+        app:layout_constraintBottom_toTopOf="@id/rv"
+        app:layout_constraintStart_toStartOf="@id/rv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_uom" />
+
+    <TextView
+        android:id="@+id/tv_price_per_product"
+        style="@style/MyTextContent"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/space"
+        android:layout_marginEnd="@dimen/def_margin"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@id/rv"
+        app:layout_constraintTop_toBottomOf="@id/rv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center|left"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/def_margin"
+    android:paddingEnd="@dimen/def_margin">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/decrease"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_minus_d" />
+
+        <EditText
+            android:id="@+id/ed"
+            style="@style/MyTextContent"
+            android:layout_width="50dp"
+            android:layout_marginLeft="@dimen/space"
+            android:layout_marginTop="@dimen/space_half"
+            android:layout_marginRight="@dimen/space"
+            android:layout_marginBottom="@dimen/space_half"
+            android:background="@drawable/background_filled_white_radius"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="@dimen/h4" />
+
+        <ImageView
+            android:id="@+id/increase"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_plus" />
+
+        <TextView
+            android:id="@+id/tv_uom"
+            style="@style/MyTextContent.Small"
+            android:layout_marginStart="@dimen/def_margin_half"
+            android:layout_marginLeft="@dimen/def_margin_half"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            tools:text="PCS" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/def_margin"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_harga"
+            style="@style/MyTextContent.Small.Grey.Light"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            tools:text="1000000" />
+
+        <TextView
+            android:id="@+id/tv_qty_x_price"
+            style="@style/MyTextContent.Small.Grey.Light"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space"
+            android:textAlignment="textEnd"
+            tools:text="1000000" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>
