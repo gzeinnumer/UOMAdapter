@@ -70,11 +70,13 @@ public class SingleUOMActivity extends AppCompatActivity {
         String[] countAll = new String[adapter.getHolders().size()];
         for (int i = 0; i < adapter.getHolders().size(); i++) {
             ItemUomBinding bind = adapter.getHolders().get(i);
-            String s = bind.tvQtyXPrice.getText().toString();
-            if (s.length() > 0) {
-                countAll[i] = s;
-            } else {
-                countAll[i] = "0";
+            if (bind!=null){
+                String s = bind.tvQtyXPrice.getText().toString();
+                if (s.length() > 0) {
+                    countAll[i] = s;
+                } else {
+                    countAll[i] = "0";
+                }
             }
         }
 
@@ -93,11 +95,13 @@ public class SingleUOMActivity extends AppCompatActivity {
 
     private void initLastData(List<UOM> list) {
         for (int i = 0; i < adapter.getHolders().size(); i++) {
-            ItemUomBinding itemUomBinding = adapter.getHolders().get(i);
-            UOM current = list.get(i);
-            itemUomBinding.ed.setText(current.getLastData() + "");
-            int harga = current.getLastData() * current.getPrice();
-            itemUomBinding.tvQtyXPrice.setText(harga + "");
+            ItemUomBinding bind = adapter.getHolders().get(i);
+            if (bind!=null){
+                UOM current = list.get(i);
+                bind.ed.setText(current.getLastData() + "");
+                int harga = current.getLastData() * current.getPrice();
+                bind.tvQtyXPrice.setText(harga + "");
+            }
         }
         binding.progressCircular.setVisibility(View.GONE);
     }
