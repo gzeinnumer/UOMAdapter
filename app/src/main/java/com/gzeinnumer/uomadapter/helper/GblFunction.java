@@ -12,20 +12,28 @@ public class GblFunction {
     }
 
     public static String saparator(String value) {
-        if (value == null || value.equals("")) {
+        try {
+            if (value == null || value.equals("")) {
+                return "0";
+            }
+            value = idrComma(value);
+            return value.substring(0, value.indexOf(","));
+        } catch (Exception e) {
             return "0";
         }
-        value = idrComma(value);
-        return value.substring(0, value.indexOf(","));
     }
 
     public static String idrComma(String value) {
-        if (value == null || value.equals("")) {
+        try {
+            if (value == null || value.equals("")) {
+                return "0";
+            } else {
+                Locale localeID = new Locale("in", "ID");
+                NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+                return formatRupiah.format(Double.valueOf(value)).replace("Rp", "");
+            }
+        } catch (Exception e) {
             return "0";
-        } else {
-            Locale localeID = new Locale("in", "ID");
-            NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-            return formatRupiah.format(Double.valueOf(value)).replace("Rp", "");
         }
     }
 
@@ -34,6 +42,6 @@ public class GblFunction {
     }
 
     public static String clearAllSymbol(String value) {
-        return value.replace(MATA_UANG, "").replace(".","").replace(",","");
+        return value.replace(MATA_UANG, "").replace(".", "").replace(",", "");
     }
 }
